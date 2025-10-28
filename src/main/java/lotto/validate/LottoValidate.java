@@ -19,4 +19,9 @@ public class LottoValidate {
         }
     }
 
+    //  로또 번호 범위 리스트 검사 메서드
+    public void validateRangeLotto(List<Integer> lottoNumbers) {
+        for (int lottoNumber : lottoNumbers) { validateOverLottoNumber(lottoNumber); }
+    }
+
 }
