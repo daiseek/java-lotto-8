@@ -9,4 +9,12 @@ public class InputValidate {
             throw new IllegalArgumentException("[ERROR] 양의 정수를 입력해야 합니다.");
         }
     }
+
+    public static int validateInteger(String number) {
+        try {
+            return Integer.parseInt(number);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("[ERROR] 양의 정수를 입력해야 합니다.");
+        }
+    }
 }
