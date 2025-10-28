@@ -32,5 +32,14 @@ public class Lotto {
         }
         return 0;
     }
+
+    // 당첨 번호 리스트 비교 메서드 
+    public int compareLotto(List<Integer> winNumbers, List<Integer> lottoNumbers) {
+        int matchCount = 0;
+        for (int lottoNumber : lottoNumbers) {
+            matchCount += compareLottoNumber(winNumbers, lottoNumber);
+        }
+        return matchCount;
+    }
     
 }
