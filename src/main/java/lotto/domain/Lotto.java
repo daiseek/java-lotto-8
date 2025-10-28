@@ -24,5 +24,13 @@ public class Lotto {
     public void sortLotto() {
         Collections.sort(numbers);
     }
+
+    // 로또 개별 당첨 번호 비교 메서드
+    public int compareLottoNumber(List<Integer> winNumbers, int lottoNumber) {
+        if (winNumbers.contains(lottoNumber)) {
+            return 1;
+        }
+        return 0;
+    }
     
 }
