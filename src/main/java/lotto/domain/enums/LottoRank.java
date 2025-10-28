@@ -2,9 +2,26 @@ package lotto.domain.enums;
 
 public enum LottoRank {
     // TODO : 당첨 기준에 따라 당첨순위 & 당첨금 정의
-    //  - 1등 : 6개 번호 일치 & 2,000,000,000원
-    //  - 2등 : 5개 번호 일치 + 보너스 번호 일치 & 30,000,000원
-    //  - 3등 : 5개 번호 일치 & 1,500,000원
-    //  - 4등 : 4개 번호 일치 & 50,000원
-    //  - 5등 : 3개 번호 일치 & 5,000원
+
+    FIRST(6, 2000000000),
+    SECOND(5, 30000000),
+    THIRD(5, 1500000),
+    FOURTH(4, 50000),
+    FIFTH(3, 5000);
+
+    private final int matchCount; // 당첨 번호 일치 개수
+    private final int prize; // 상금
+
+    LottoRank(int matchCount, int prize) {
+        this.matchCount = matchCount;
+        this.prize = prize;
+    }
+
+    public int getMatchCount() {
+        return matchCount;
+    }
+    
+    public int getPrize() {
+        return prize;
+    }
 }
