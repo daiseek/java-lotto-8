@@ -18,8 +18,6 @@ public class InputUtil {
         return Randoms.pickUniqueNumbersInRange(MIN_LOTTO_NUMBER, MAX_LOTTO_NUMBER, LOTTO_SIZE);
     }
     
-    //  보너스 번호와 로또 번호를 비교하는 메서드
-    
     //  로또 번호를 쉼표 기준으로 구분(파싱)하는 메서드
     public static List<Integer> parseLottoNumbers(String input) {
         return Arrays.stream(input.split(","))
