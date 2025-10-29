@@ -7,7 +7,7 @@ import java.util.List;
 public class Lotto {
     private final List<Integer> numbers;
 
-    public Lotto(List<Integer> numbers) {
+    private Lotto(List<Integer> numbers) {
         validate(numbers);
         this.numbers = numbers;
     }
@@ -19,6 +19,11 @@ public class Lotto {
     }
 
     // TODO: 추가 기능 구현
+    
+    // Lotto 객체 생성 메서드
+    public static Lotto of(List<Integer> numbers) {
+        return new Lotto(numbers);
+    }
 
     // 로또 번호 리스트 오름차순 정렬 메서드
     public void sortLotto() {
