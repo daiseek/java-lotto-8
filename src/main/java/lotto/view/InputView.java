@@ -4,6 +4,7 @@ import static lotto.validate.InputValidate.validateComma;
 import static lotto.validate.InputValidate.validatePositiveInteger;
 import static lotto.validate.InputValidate.validateInteger;
 import static lotto.util.InputUtil.parseLottoNumbers;
+import static lotto.validate.InputValidate.validateRangeLottoNumber;
 
 import java.util.List;
 
@@ -26,5 +27,16 @@ public class InputView {
         validateComma(input);
         return parseLottoNumbers(input);
     }
+
     //  - 보너스 번호 입력 메서드
+    public int inputBonusNumber() {
+        String input = Console.readLine();
+        // 유효성 검증
+        validateInteger(input);
+        validateRangeLottoNumber(Integer.parseInt(input));
+        validatePositiveInteger(Integer.parseInt(input));
+
+        return Integer.parseInt(input);
+    }
+    
 }
