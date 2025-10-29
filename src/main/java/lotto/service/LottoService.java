@@ -25,13 +25,13 @@ public class LottoService {
         for (int i = 0; i < lottoCount; i++) {
             List<Integer> lottoNumbers = InputUtil.generateLotto();
             Lotto lotto = Lotto.of(lottoNumbers);
+            lotto.sortLotto();
             lottos.add(lotto);
     } 
         return lottos;
     }
 
     // 로또 당첨 확인
-
 
     //  보너스 번호와 로또 번호를 비교하는 메서드
 
