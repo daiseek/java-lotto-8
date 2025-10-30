@@ -46,5 +46,10 @@ public class Lotto {
         }
         return matchCount;
     }
+
+    // 로또 리스트에 보너스 번호가 존재하는지 판단 메서드
+    public boolean containBonusNumber(int bonusNumber) {
+        return this.numbers.contains(bonusNumber);
+    }
     
 }
