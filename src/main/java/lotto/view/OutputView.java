@@ -24,9 +24,10 @@ public class OutputView {
     public void printProfitRate(double profitRate) {
         System.out.println("총 수익률은 " + profitRate + "%입니다.");
     }
-    
+
     //  - 에러 메시지 출력 메서드
-    //  - 당첨 통계를 내는 메서드
-    //  - 예외 발생시 [ERROR] 메시지 출력 메서드
+    public void printErrorMessage(String errorMessage) {
+        System.out.println("[ERROR] " + errorMessage);
+    }
 
 }
