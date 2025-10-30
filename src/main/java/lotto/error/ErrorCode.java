@@ -3,7 +3,7 @@ package lotto.error;
 public class ErrorCode {
     // TODO : 에러 코드 정의
     //  - 양의 정수 외의 숫자 입력시 에러 코드
-    public static final String INVALID_INPUT_INTEGER_CODE = "INVALID_INPUT_INTEGER";
+    public static final String INVALID_POSITIVE_INTEGER_CODE = "INVALID_POSITIVE_INTEGER";
     //  - 로또 번호 중복 에러 코드
     public static final String INVALID_DUPLICATE_LOTTO_CODE = "INVALID_DUPLICATE_LOTTO";
     //  - 로또 번호 범위 초과 에러 코드
