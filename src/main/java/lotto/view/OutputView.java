@@ -1,5 +1,8 @@
 package lotto.view;
 
+import java.util.Map;
+import lotto.domain.enums.LottoRank;
+
 public class OutputView {
 
     // TODO: 출력 메서드 구현
@@ -9,6 +12,14 @@ public class OutputView {
     }
 
     //  - 당첨 내역 출력 메서드
+    public void printWinningRecord(Map<LottoRank, Integer> prizeMap) {
+        System.out.println("당첨 통계");
+        System.out.println("---");
+        for (Map.Entry<LottoRank, Integer> entry : prizeMap.entrySet()) {
+            System.out.println(entry.getKey().getMatchCount() + "개 일치 (" + entry.getKey().getPrize() + "원) - " + entry.getValue() + "개");
+        }
+    }
+        
     //  - 수익률 출력 메서드 + 소수점 둘째 자리에서 반올림
     //  - 에러 메시지 출력 메서드
     //  - 당첨 통계를 내는 메서드
