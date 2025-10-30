@@ -86,6 +86,13 @@ public class LottoService {
     }
 
     // 수익률 계산 메서드
+    public double calculateProfitRate(Map<LottoRank, Integer> prizeMap, int purchaseAmount) {
+        int totalPrize = 0;
+        for (Map.Entry<LottoRank, Integer> entry : prizeMap.entrySet()) {
+            totalPrize += entry.getKey().getPrize() * entry.getValue();
+        }
+        return (double) totalPrize / purchaseAmount;
     }
+}
 
 
