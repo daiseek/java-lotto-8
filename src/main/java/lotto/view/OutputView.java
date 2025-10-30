@@ -30,6 +30,7 @@ public class OutputView {
     //  - 수익률 출력 메서드 + 소수점 둘째 자리에서 반올림
     public void printProfitRate(double profitRate) {
         System.out.println("총 수익률은 " + profitRate + "%입니다.");
+        System.out.println("---");
     }
 
     //  - 에러 메시지 출력 메서드
