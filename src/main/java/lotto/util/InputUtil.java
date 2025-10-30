@@ -21,6 +21,7 @@ public class InputUtil {
     //  로또 번호를 쉼표 기준으로 구분(파싱)하는 메서드
     public static List<Integer> parseLottoNumbers(String input) {
         return Arrays.stream(input.split(","))
+            .map(String::trim)
             .map(Integer::parseInt)
             .collect(Collectors.toList());
     }
