@@ -2,8 +2,11 @@ package lotto.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import lotto.domain.Lotto;
+import lotto.domain.enums.LottoRank;
 import lotto.util.InputUtil;
 
 public class LottoService {
@@ -32,10 +35,55 @@ public class LottoService {
     }
 
     // 로또 당첨 확인
+    public void checkLottoPrize(List<Lotto> lottos, List<Integer> winningNumbers, int bonusNumber) {
+        for (Lotto lotto : lottos) {
+            int matchCount = lotto.compareLotto(winningNumbers); // 당첨 번호 일치 개수
+            LottoRank rank; // 당첨 순위 변수
+            int prize; // 당첨 금액
+
+            // 당첨 순위와 당첨 금액을 저장하는 맵
+            Map<LottoRank, Integer> prizeMap = new HashMap<>();
+
+            if (matchCount == 6) {
+                rank = LottoRank.FIRST;
+                prize = LottoRank.FIRST.getPrize();
+                prizeMap.put(rank, prize);
+                continue;
+            } 
+            if (matchCount == 5 && lotto.containBonusNumber(bonusNumber)) {
+                rank = LottoRank.SECOND;
+                prize = LottoRank.SECOND.getPrize();
+                prizeMap.put(rank, prize);
+                continue;
+            }
+            if (matchCount == 5) {
+                rank = LottoRank.THIRD;
+                prize = LottoRank.THIRD.getPrize();
+                prizeMap.put(rank, prize);
+                continue;
+            }
+            if (matchCount == 4) {
+                rank = LottoRank.FOURTH;
+                prize = LottoRank.FOURTH.getPrize();
+                prizeMap.put(rank, prize);
+                continue;
+            }
+            if (matchCount == 3) {
+                rank = LottoRank.FIFTH;
+                prize = LottoRank.FIFTH.getPrize();
+                prizeMap.put(rank, prize);
+                continue;
+            }
+            if (matchCount < 3) {
+                continue;
+            }
+        }
+    
 
     //  보너스 번호와 로또 번호를 비교하는 메서드
 
     // 수익률 계산 메서드
 
 
+    }
 }
