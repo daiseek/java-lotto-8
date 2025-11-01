@@ -38,44 +38,26 @@ public class LottoService {
                                                    List<Integer> winningNumbers,
                                                    int bonusNumber) {
         
-        LottoRank rank; // 당첨 순위 변수
-        int prize; // 당첨 금액
-
-        // 당첨 순위와 당첨 금액을 저장하는 맵
+        // 당첨 등급별 개수를 저장하는 맵
         Map<LottoRank, Integer> prizeMap = new HashMap<>();
 
         for (Lotto lotto : lottos) {
             int matchCount = lotto.compareLotto(winningNumbers); // 당첨 번호 일치 개수
-            
+
             if (matchCount == 6) {
-                rank = LottoRank.FIRST;
-                prize = LottoRank.FIRST.getPrize();
-                prizeMap.put(rank, prizeMap.getOrDefault(rank, 0) + 1);
-                continue;
-            } 
+                prizeMap.put(LottoRank.FIRST, prizeMap.getOrDefault(LottoRank.FIRST, 0) + 1);
+            }
             if (matchCount == 5 && lotto.containBonusNumber(bonusNumber)) {
-                rank = LottoRank.SECOND;
-                prize = LottoRank.SECOND.getPrize();
-                prizeMap.put(rank, prizeMap.getOrDefault(rank, 0) + 1);
-                continue;
+                prizeMap.put(LottoRank.SECOND, prizeMap.getOrDefault(LottoRank.SECOND, 0) + 1);
             }
             if (matchCount == 5) {
-                rank = LottoRank.THIRD;
-                prize = LottoRank.THIRD.getPrize();
-                prizeMap.put(rank, prizeMap.getOrDefault(rank, 0) + 1);
-                continue;
+                prizeMap.put(LottoRank.THIRD, prizeMap.getOrDefault(LottoRank.THIRD, 0) + 1);
             }
             if (matchCount == 4) {
-                rank = LottoRank.FOURTH;
-                prize = LottoRank.FOURTH.getPrize();
-                prizeMap.put(rank, prizeMap.getOrDefault(rank, 0) + 1);
-                continue;
+                prizeMap.put(LottoRank.FOURTH, prizeMap.getOrDefault(LottoRank.FOURTH, 0) + 1);
             }
             if (matchCount == 3) {
-                rank = LottoRank.FIFTH;
-                prize = LottoRank.FIFTH.getPrize();
-                prizeMap.put(rank, prizeMap.getOrDefault(rank, 0) + 1);
-                continue;
+                prizeMap.put(LottoRank.FIFTH, prizeMap.getOrDefault(LottoRank.FIFTH, 0) + 1);
             }
             if (matchCount < 3) {
                 continue;
@@ -86,11 +68,11 @@ public class LottoService {
 
     // 수익률 계산 메서드
     public double calculateProfitRate(Map<LottoRank, Integer> prizeMap, int purchaseAmount) {
-        int totalPrize = 0;
+        long totalPrize = 0;
         for (Map.Entry<LottoRank, Integer> entry : prizeMap.entrySet()) {
-            totalPrize += entry.getKey().getPrize() * entry.getValue();
+            totalPrize += (long) entry.getKey().getPrize() * entry.getValue();
         }
-        return (double) totalPrize / purchaseAmount;
+        return Math.round(totalPrize * 100.0 / purchaseAmount * 100.0) / 100.0;
     }
 }
 
