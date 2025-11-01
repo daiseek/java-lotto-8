@@ -4,6 +4,8 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
+import lotto.error.ErrorMessage;
+
 public class Lotto {
     private final List<Integer> numbers;
 
@@ -18,7 +20,7 @@ public class Lotto {
 
     private void validate(List<Integer> numbers) {
         if (numbers.size() != 6) {
-            throw new IllegalArgumentException("[ERROR] 로또 번호는 6개여야 합니다.");
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBERS_MESSAGE);
         }
     }
 
