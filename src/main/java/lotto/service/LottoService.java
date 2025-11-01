@@ -28,7 +28,6 @@ public class LottoService {
         for (int i = 0; i < lottoCount; i++) {
             List<Integer> lottoNumbers = InputUtil.generateLotto();
             Lotto lotto = Lotto.of(lottoNumbers);
-            lotto.sortLotto();
             lottos.add(lotto);
     } 
         return lottos;
