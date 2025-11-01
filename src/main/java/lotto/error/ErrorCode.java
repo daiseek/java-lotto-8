@@ -10,6 +10,8 @@ public class ErrorCode {
     public static final String INVALID_OVER_LOTTO_NUMBER_CODE = "INVALID_OVER_LOTTO_NUMBER";
     // 쉼표 기준 파싱할때 에러 코드
     public static final String INVALID_COMMA_CODE = "INVALID_COMMA";
+    // 로또 번호가 6개가 아닐때 에러 코드
+    public static final String INVALID_NUMBERS_CODE = "INVALID_NUMBERS_CODE";
 
 
 }
