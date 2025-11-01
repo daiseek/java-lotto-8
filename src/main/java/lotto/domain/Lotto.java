@@ -22,6 +22,9 @@ public class Lotto {
         if (numbers.size() != 6) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_NUMBERS_MESSAGE);
         }
+        if (numbers.size() != new HashSet<>(numbers).size()) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_DUPLICATE_LOTTO_MESSAGE);
+        }
     }
 
     // TODO: 추가 기능 구현
