@@ -1,7 +1,9 @@
 package lotto.view;
 
 import java.util.Map;
+
 import java.util.List;
+import java.util.stream.Collectors;
 
 import lotto.domain.Lotto;
 import lotto.domain.enums.LottoRank;
@@ -14,7 +16,13 @@ public class OutputView {
         System.out.println(lottoCount + "개를 구매했습니다.");
         // 구입한 로또 리스트를 출력
         for (Lotto lotto : lottos) {
-            System.out.println(lotto.getLottoNumbers().toString().replace(" ", ""));
+            List<Integer> sortedLottoNumbers = lotto.getLottoNumbers().stream()
+                .sorted()
+                .toList();
+
+            System.out.println("[" + sortedLottoNumbers.stream()
+                .map(String::valueOf)
+                .collect(Collectors.joining(", ")) + "]");
         }
     }
 
@@ -22,10 +30,26 @@ public class OutputView {
     public void printWinningRecord(Map<LottoRank, Integer> prizeMap) {
         System.out.println("당첨 통계");
         System.out.println("---");
-        for (Map.Entry<LottoRank, Integer> entry : prizeMap.entrySet()) {
-            System.out.println(entry.getKey().getMatchCount() + "개 일치 (" + entry.getKey().getPrize() + "원) - " + entry.getValue() + "개");
+
+        // 모든 등급을 순서대로 출력 (당첨되지 않은 등급도 0개로)
+        printRankResult(prizeMap, LottoRank.FIFTH);
+        printRankResult(prizeMap, LottoRank.FOURTH);
+        printRankResult(prizeMap, LottoRank.THIRD);
+        printRankResult(prizeMap, LottoRank.SECOND);
+        printRankResult(prizeMap, LottoRank.FIRST);
+    }
+
+    private void printRankResult(Map<LottoRank, Integer> prizeMap, LottoRank rank) {
+        int count = prizeMap.getOrDefault(rank, 0);
+        String prizeStr = String.format("%,d", rank.getPrize());
+
+        if (rank == LottoRank.SECOND) {
+            System.out.println("5개 일치, 보너스 볼 일치 (" + prizeStr + "원) - " + count + "개");
+        } else {
+            System.out.println(rank.getMatchCount() + "개 일치 (" + prizeStr + "원) - " + count + "개");
         }
     }
+    
         
     //  - 수익률 출력 메서드 + 소수점 둘째 자리에서 반올림
     public void printProfitRate(double profitRate) {
