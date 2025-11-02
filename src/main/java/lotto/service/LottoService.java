@@ -46,18 +46,23 @@ public class LottoService {
 
             if (matchCount == 6) {
                 prizeMap.put(LottoRank.FIRST, prizeMap.getOrDefault(LottoRank.FIRST, 0) + 1);
+                continue;
             }
             if (matchCount == 5 && lotto.containBonusNumber(bonusNumber)) {
                 prizeMap.put(LottoRank.SECOND, prizeMap.getOrDefault(LottoRank.SECOND, 0) + 1);
+                continue;
             }
             if (matchCount == 5) {
                 prizeMap.put(LottoRank.THIRD, prizeMap.getOrDefault(LottoRank.THIRD, 0) + 1);
+                continue;
             }
             if (matchCount == 4) {
                 prizeMap.put(LottoRank.FOURTH, prizeMap.getOrDefault(LottoRank.FOURTH, 0) + 1);
+                continue;
             }
             if (matchCount == 3) {
                 prizeMap.put(LottoRank.FIFTH, prizeMap.getOrDefault(LottoRank.FIFTH, 0) + 1);
+                continue;
             }
             if (matchCount < 3) {
                 continue;
