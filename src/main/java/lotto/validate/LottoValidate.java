@@ -16,7 +16,7 @@ public class LottoValidate {
 
     //  로또 번호 리스트 범위 미만 검사 메서드
     public void validateOverLottoNumber(int lottoNumbers) {
-        if (lottoNumbers <= 1 || lottoNumbers >= 45) {
+        if (lottoNumbers < 1 || lottoNumbers > 45) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_OVER_LOTTO_NUMBER_MESSAGE);
         }
     }
