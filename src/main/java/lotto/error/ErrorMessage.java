@@ -1,8 +1,6 @@
 package lotto.error;
 
 public class ErrorMessage {
-    // TODO : 에러 메시지 정의
-    //  이때 "[ERROR]" 메시지를 포함하여 출력
 
     //  - 양의 정수 외의 숫자 입력시 에러 메시지
     public static final String INVALID_POSITIVE_INTEGER_MESSAGE = "[ERROR] 양의 정수를 입력해야 합니다.";

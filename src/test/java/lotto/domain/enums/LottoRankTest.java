@@ -1,6 +1,5 @@
 package lotto.domain.enums;
 
-import lotto.domain.enums.LottoRank;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

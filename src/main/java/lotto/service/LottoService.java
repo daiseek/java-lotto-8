@@ -10,7 +10,6 @@ import lotto.domain.enums.LottoRank;
 import lotto.util.InputUtil;
 
 public class LottoService {
-    // TODO : Lotto 관련 로직을 모아서 비즈니스 로직 구현 
 
     private static final int LOTTO_PRICE = 1000;
     private int lottoCount;

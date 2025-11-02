@@ -29,8 +29,6 @@ public class Lotto {
         }
     }
 
-    // TODO: 추가 기능 구현
-    
     // Lotto 객체 생성 메서드
     public static Lotto of(List<Integer> numbers) {
         return new Lotto(numbers);

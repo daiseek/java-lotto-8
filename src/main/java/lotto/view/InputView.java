@@ -11,7 +11,6 @@ import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
-    // TODO : 입력 메서드 구현
 
     // 로또 구입 금액을 입력받는 메서드
     public int inputLottoPurchaseAmount() {

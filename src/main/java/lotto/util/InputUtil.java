@@ -7,7 +7,6 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class InputUtil {
-    // TODO : Input 관련 유틸리티 메서드 정의
 
     private static final int MIN_LOTTO_NUMBER = 1;
     private static final int MAX_LOTTO_NUMBER = 45;

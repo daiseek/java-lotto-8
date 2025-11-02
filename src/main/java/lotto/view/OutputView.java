@@ -10,8 +10,6 @@ import lotto.domain.enums.LottoRank;
 
 public class OutputView {
 
-    // TODO: 출력 메서드 구현
-    //  - 사용자가 구매한 갯수 출력 메서드
     public void printLottos(int lottoCount, List<Lotto> lottos) {
         System.out.println(lottoCount + "개를 구매했습니다.");
         // 구입한 로또 리스트를 출력
