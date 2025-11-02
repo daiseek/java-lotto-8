@@ -1,8 +1,10 @@
 package lotto.domain;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import lotto.error.ErrorMessage;
 
@@ -11,7 +13,7 @@ public class Lotto {
 
     public Lotto(List<Integer> numbers) {
         validate(numbers);
-        this.numbers = numbers;
+        this.numbers = numbers.stream().collect(Collectors.toCollection(ArrayList::new));
     }
 
     public List<Integer> getLottoNumbers() {
